@@ -21,9 +21,10 @@ export default function AuthForm() {
         const { error } = await supabase.auth.signUp({ email, password });
         if (error) throw error;
       }
-      // Remove window.location.reload() - AuthProvider handles state changes
-    } catch (error: any) {
-      alert(error.message);
+
+    } catch (error: unknown) {
+      const message = error instanceof Error ? error.message : 'An unexpected error occurred';
+      alert(message);
     } finally {
       setIsLoading(false);
     }
@@ -35,9 +36,10 @@ export default function AuthForm() {
       const { data, error } = await supabase.auth.signInAnonymously();
       if (error) throw error;
       console.log('Anonymous user created:', data.user);
-      // Remove window.location.reload() - AuthProvider handles state changes
-    } catch (error: any) {
-      alert(error.message);
+
+    } catch (error: unknown) {
+      const message = error instanceof Error ? error.message : 'An unexpected error occurred';
+      alert(message);
     } finally {
       setIsLoading(false);
     }
