@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
-import { Send, Plus, Menu, LogOut, Trash2 } from 'lucide-react';
+import { Send, Plus, Menu, LogOut} from 'lucide-react';
 import { api } from '@/utils/api';
 import { useAuth } from '@/components/AuthProvider';
 
